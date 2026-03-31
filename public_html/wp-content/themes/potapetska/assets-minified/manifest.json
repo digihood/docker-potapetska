@@ -1,0 +1,25 @@
+{
+  "assets/scripts/js/app.css": {
+    "file": "styles/app.css",
+    "src": "assets/scripts/js/app.css"
+  },
+  "assets/scripts/js/app.js": {
+    "css": [
+      "styles/app.css",
+      "styles/style.css"
+    ],
+    "file": "scripts/app.js",
+    "isEntry": true,
+    "src": "assets/scripts/js/app.js"
+  },
+  "assets/styles/specific-css/admin.css": {
+    "file": "styles/admin.css",
+    "isEntry": true,
+    "src": "assets/styles/specific-css/admin.css"
+  },
+  "assets/styles/style.css": {
+    "file": "styles/style.css",
+    "isEntry": true,
+    "src": "assets/styles/style.css"
+  }
+}

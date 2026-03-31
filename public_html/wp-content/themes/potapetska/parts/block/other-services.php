@@ -1,0 +1,56 @@
+<?php
+$label = get_field('other_services_label');
+$heading = get_field('other_services_heading');
+$heading2 = get_field('other_services_heading2');
+$items = get_field('other_services_items');
+$cta_text = get_field('other_services_cta_text');
+$cta_link = get_field('other_services_cta_link');
+if (!$items) return;
+?>
+<section style="background:#ffffff;padding:100px 0;">
+    <div class="container-main">
+        <?php get_template_part('parts/section-header', null, array(
+            'label' => $label,
+            'heading' => $heading,
+            'heading2' => $heading2,
+            'align' => 'center',
+        )); ?>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-12">
+            <?php foreach ($items as $service) :
+                $tags = !empty($service['tags']) ? array_map('trim', explode(',', $service['tags'])) : array();
+                $link = !empty($service['link']) ? $service['link'] : null;
+            ?>
+            <div class="rounded p-8 transition-all duration-300 relative card-hover" style="background:#ffffff;border:1px solid rgba(3,56,105,0.08);">
+                <h3 class="font-heading" style="font-size:1.15rem;font-weight:800;color:#033869;text-transform:uppercase;letter-spacing:0.02em;margin-bottom:14px;line-height:1.2;">
+                    <?php echo esc_html($service['title']); ?>
+                </h3>
+                <p style="color:#6b7280;font-size:0.88rem;line-height:1.6;margin-bottom:20px;">
+                    <?php echo esc_html($service['description']); ?>
+                </p>
+                <?php if ($tags) : ?>
+                <div class="flex flex-wrap gap-1.5">
+                    <?php foreach ($tags as $tag) : ?>
+                    <span style="background:rgba(3,56,105,0.06);color:#033869;font-size:0.7rem;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;padding:5px 10px;border-radius:2px;">
+                        <?php echo esc_html($tag); ?>
+                    </span>
+                    <?php endforeach; ?>
+                </div>
+                <?php endif; ?>
+                <div class="absolute bottom-0 left-0" style="height:3px;width:48px;background:#fcdb00;"></div>
+            </div>
+            <?php endforeach; ?>
+        </div>
+
+        <?php if ($cta_text) :
+            $url = $cta_link ? $cta_link['url'] : home_url('/#sluzby');
+        ?>
+        <div class="text-center">
+            <a href="<?php echo esc_url($url); ?>" class="btn-secondary">
+                <?php echo esc_html($cta_text); ?>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+        </div>
+        <?php endif; ?>
+    </div>
+</section>
