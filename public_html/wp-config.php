@@ -22,7 +22,7 @@ define( 'ITSEC_ENCRYPTION_KEY', 'bkN3Vl5yOyl+ODB+YDk2czBNe35RW30+Jjp+LnleOXUvU3V
  */
 
 
-define('VITE_DEVELOPMENT', false); //false pro produkci
+define('VITE_DEVELOPMENT', true); //false pro produkci
 
 define('FS_METHOD', 'direct');
 
@@ -88,6 +88,8 @@ $table_prefix = 'wp_';
 define( 'WP_DEBUG', false );
 
 /* That's all, stop editing! Happy publishing. */
+define( 'WP_HOME', 'http://localhost:8080' );
+define( 'WP_SITEURL', 'http://localhost:8080' );
 
 /** Absolute path to the WordPress directory. */
 if ( ! defined( 'ABSPATH' ) ) {
