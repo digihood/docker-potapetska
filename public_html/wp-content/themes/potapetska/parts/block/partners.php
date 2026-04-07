@@ -1,8 +1,8 @@
 <?php
 $bg = get_field('partners_bg_color') ?: 'light';
-$bg_color = $bg === 'light' ? '#f0f2f5' : '#ffffff';
+$bg_class = $bg === 'light' ? 'bg-gray-bg' : 'bg-white';
 ?>
-<section style="background:<?php echo $bg_color; ?>;padding:100px 0;">
+<section class="<?php echo $bg_class; ?> py-[100px]">
     <div class="container-main">
         <?php get_template_part('parts/partners-section'); ?>
     </div>

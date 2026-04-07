@@ -7,7 +7,7 @@ $cta_text = get_field('other_services_cta_text');
 $cta_link = get_field('other_services_cta_link');
 if (!$items) return;
 ?>
-<section style="background:#ffffff;padding:100px 0;">
+<section class="bg-white py-[100px]">
     <div class="container-main">
         <?php get_template_part('parts/section-header', null, array(
             'label' => $label,
@@ -21,23 +21,23 @@ if (!$items) return;
                 $tags = !empty($service['tags']) ? array_map('trim', explode(',', $service['tags'])) : array();
                 $link = !empty($service['link']) ? $service['link'] : null;
             ?>
-            <div class="rounded p-8 transition-all duration-300 relative card-hover" style="background:#ffffff;border:1px solid rgba(3,56,105,0.08);">
-                <h3 class="font-heading" style="font-size:1.15rem;font-weight:800;color:#033869;text-transform:uppercase;letter-spacing:0.02em;margin-bottom:14px;line-height:1.2;">
+            <div class="rounded p-8 transition-all duration-300 relative card-hover bg-white border border-primary/[0.08]">
+                <h3 class="font-heading text-[1.15rem] font-extrabold text-primary uppercase tracking-[0.02em] mb-[14px] leading-[1.2]">
                     <?php echo esc_html($service['title']); ?>
                 </h3>
-                <p style="color:#6b7280;font-size:0.88rem;line-height:1.6;margin-bottom:20px;">
+                <p class="text-gray-body text-[0.88rem] leading-[1.6] mb-5">
                     <?php echo esc_html($service['description']); ?>
                 </p>
                 <?php if ($tags) : ?>
                 <div class="flex flex-wrap gap-1.5">
                     <?php foreach ($tags as $tag) : ?>
-                    <span style="background:rgba(3,56,105,0.06);color:#033869;font-size:0.7rem;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;padding:5px 10px;border-radius:2px;">
+                    <span class="bg-primary/[0.06] text-primary text-[0.7rem] font-bold tracking-[0.05em] uppercase py-[5px] px-2.5 rounded-sm">
                         <?php echo esc_html($tag); ?>
                     </span>
                     <?php endforeach; ?>
                 </div>
                 <?php endif; ?>
-                <div class="absolute bottom-0 left-0" style="height:3px;width:48px;background:#fcdb00;"></div>
+                <div class="absolute bottom-0 left-0 h-[3px] w-12 bg-yellow"></div>
             </div>
             <?php endforeach; ?>
         </div>

@@ -12,5 +12,6 @@ add_action('acf/init', function() {
             array('key' => 'field_ps_items', 'label' => 'Projekty', 'name' => 'projects_select_items', 'type' => 'relationship', 'post_type' => array('projekt'), 'return_format' => 'object'),
         ),
         'location' => array(array(array('param' => 'block', 'operator' => '==', 'value' => 'acf/projects-select'))),
+        'style' => 'seamless',
     ));
 });

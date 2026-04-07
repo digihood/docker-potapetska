@@ -10,28 +10,28 @@ $badge_text = get_field('about_badge_text');
 $certs = get_field('about_certifications');
 $bg = get_field('about_bg_color') ?: 'white';
 
-$bg_colors = array('white' => '#ffffff', 'light' => '#f0f2f5', 'dark' => '#033869');
-$bg_color = $bg_colors[$bg] ?? '#ffffff';
 $is_dark = $bg === 'dark';
-$text_color = $is_dark ? 'rgba(226,232,240,0.85)' : '#6b7280';
-$heading_color = $is_dark ? '#ffffff' : '#033869';
-$scheme = $is_dark ? 'dark' : 'light';
+$bg_class = match($bg) {
+    'dark' => 'bg-primary',
+    'light' => 'bg-gray-bg',
+    default => 'bg-white',
+};
 ?>
-<section id="o-nas" style="background:<?php echo $bg_color; ?>;padding:100px 0;overflow:hidden;">
+<section id="o-nas" class="<?php echo $bg_class; ?> py-[100px] overflow-hidden">
     <div class="container-main">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
             <div>
                 <?php if ($label) : ?>
-                <div class="section-label" style="margin-bottom:16px;">
+                <div class="section-label mb-4">
                     <div class="section-label-line"></div>
-                    <span class="section-label-text" style="color:<?php echo $is_dark ? '#fcdb00' : '#033869'; ?>;"><?php echo esc_html($label); ?></span>
+                    <span class="section-label-text <?php echo $is_dark ? 'text-yellow' : 'text-primary'; ?>"><?php echo esc_html($label); ?></span>
                 </div>
                 <?php endif; ?>
                 <?php if ($heading) : ?>
-                <h2 style="color:<?php echo $heading_color; ?>;margin-bottom:24px;"><?php echo esc_html($heading); ?></h2>
+                <h2 class="<?php echo $is_dark ? 'text-white' : 'text-primary'; ?> mb-6"><?php echo esc_html($heading); ?></h2>
                 <?php endif; ?>
                 <?php if ($text) : ?>
-                <div style="color:<?php echo $text_color; ?>;font-size:1rem;line-height:1.8;margin-bottom:36px;">
+                <div class="<?php echo $is_dark ? 'text-slate-300/85' : 'text-gray-body'; ?> text-base leading-[1.8] mb-9">
                     <?php echo $text; ?>
                 </div>
                 <?php endif; ?>
@@ -47,14 +47,14 @@ $scheme = $is_dark ? 'dark' : 'light';
 
             <div>
                 <?php if ($image) : ?>
-                <div class="relative rounded overflow-hidden mb-6" style="height:300px;">
-                    <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" style="width:100%;height:100%;object-fit:cover;">
-                    <div class="absolute inset-0" style="background:linear-gradient(to top,rgba(3,56,105,0.7) 0%,transparent 60%);"></div>
+                <div class="relative rounded overflow-hidden mb-6 h-[300px]">
+                    <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-[linear-gradient(to_top,rgba(3,56,105,0.7)_0%,transparent_60%)]"></div>
                     <?php if ($badge_num) : ?>
-                    <div class="absolute flex items-end gap-2" style="bottom:20px;left:20px;">
-                        <span class="font-heading" style="font-size:3.5rem;font-weight:900;color:#fcdb00;line-height:1;"><?php echo esc_html($badge_num); ?></span>
+                    <div class="absolute flex items-end gap-2 bottom-5 left-5">
+                        <span class="font-heading text-[3.5rem] font-black text-yellow leading-none"><?php echo esc_html($badge_num); ?></span>
                         <?php if ($badge_text) : ?>
-                        <span style="color:#ffffff;font-size:0.85rem;font-weight:500;padding-bottom:8px;"><?php echo esc_html($badge_text); ?></span>
+                        <span class="text-white text-[0.85rem] font-medium pb-2"><?php echo esc_html($badge_text); ?></span>
                         <?php endif; ?>
                     </div>
                     <?php endif; ?>
@@ -62,13 +62,13 @@ $scheme = $is_dark ? 'dark' : 'light';
                 <?php endif; ?>
 
                 <?php if ($certs) : ?>
-                <div class="flex items-center gap-4 rounded" style="padding:16px 20px;background:#f8f9fb;border:1px solid rgba(3,56,105,0.08);">
-                    <span style="color:#9ca3af;font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;white-space:nowrap;flex-shrink:0;"><?php _e('Certifikace:', 'potapetska'); ?></span>
+                <div class="flex items-center gap-4 rounded px-5 py-4 bg-gray-light border border-primary/[0.08]">
+                    <span class="text-gray-muted text-[0.68rem] font-bold tracking-[0.1em] uppercase whitespace-nowrap shrink-0"><?php _e('Certifikace:', 'potapetska'); ?></span>
                     <div class="flex items-center gap-3">
                         <?php foreach ($certs as $cert) : if (!empty($cert['image'])) : ?>
                         <div class="flex flex-col items-center gap-1" title="<?php echo esc_attr($cert['label'] . ' – ' . ($cert['description'] ?? '')); ?>">
-                            <img src="<?php echo esc_url($cert['image']['url']); ?>" alt="<?php echo esc_attr($cert['label']); ?>" style="height:60px;width:60px;object-fit:contain;opacity:0.85;">
-                            <span style="font-size:0.65rem;font-weight:700;color:#6b7280;letter-spacing:0.04em;text-transform:uppercase;"><?php echo esc_html($cert['label']); ?></span>
+                            <img src="<?php echo esc_url($cert['image']['url']); ?>" alt="<?php echo esc_attr($cert['label']); ?>" class="h-[60px] w-[60px] object-contain opacity-85">
+                            <span class="text-[0.65rem] font-bold text-gray-body tracking-[0.04em] uppercase"><?php echo esc_html($cert['label']); ?></span>
                         </div>
                         <?php endif; endforeach; ?>
                     </div>

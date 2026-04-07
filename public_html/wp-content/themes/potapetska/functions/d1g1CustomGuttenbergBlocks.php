@@ -47,7 +47,7 @@ if (!class_exists('d1g1CustomGuttenbergBlocks')) {
                     'category' => 'potapetska',
                     'icon' => $block[3],
                     'keywords' => $block[4],
-                    'mode' => 'edit',
+                    'mode' => 'preview',
                     'supports' => array('align' => false),
                 ));
             }

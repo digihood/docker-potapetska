@@ -132,10 +132,13 @@ add_action('acf/init', function() {
                 'key' => 'field_projekt_map_location',
                 'label' => 'Lokace na mapě',
                 'name' => 'projekt_map_location',
-                'type' => 'google_map',
-                'center_lat' => '49.8175',
-                'center_lng' => '15.4730',
-                'zoom' => 7,
+                'type' => 'group',
+                'layout' => 'block',
+                'sub_fields' => array(
+                    array('key' => 'field_projekt_map_lat', 'label' => 'Zeměpisná šířka (lat)', 'name' => 'lat', 'type' => 'number', 'step' => 'any', 'placeholder' => '49.8175'),
+                    array('key' => 'field_projekt_map_lng', 'label' => 'Zeměpisná délka (lng)', 'name' => 'lng', 'type' => 'number', 'step' => 'any', 'placeholder' => '15.4730'),
+                    array('key' => 'field_projekt_map_address', 'label' => 'Adresa', 'name' => 'address', 'type' => 'text'),
+                ),
             ),
             array(
                 'key' => 'field_projekt_similar',

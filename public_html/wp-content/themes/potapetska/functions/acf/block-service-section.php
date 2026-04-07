@@ -18,5 +18,6 @@ add_action('acf/init', function() {
             array('key' => 'field_ss_image', 'label' => 'Obrázek', 'name' => 'service_section_image', 'type' => 'image', 'return_format' => 'array'),
         ),
         'location' => array(array(array('param' => 'block', 'operator' => '==', 'value' => 'acf/service-section'))),
+        'style' => 'seamless',
     ));
 });

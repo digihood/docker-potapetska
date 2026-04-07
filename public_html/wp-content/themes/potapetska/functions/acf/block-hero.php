@@ -23,5 +23,6 @@ add_action('acf/init', function() {
             array('key' => 'field_hero_bg_image', 'label' => 'Pozadí', 'name' => 'hero_bg_image', 'type' => 'image', 'return_format' => 'array'),
         ),
         'location' => array(array(array('param' => 'block', 'operator' => '==', 'value' => 'acf/hero'))),
+        'style' => 'seamless',
     ));
 });

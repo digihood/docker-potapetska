@@ -3,9 +3,9 @@ $copyright = get_field('footer_copyright', 'option');
 $webdesign_text = get_field('footer_webdesign_text', 'option');
 $webdesign_url = get_field('footer_webdesign_url', 'option');
 ?>
-    <div style="padding:14px 24px;">
+    <div class="py-3.5 px-6">
         <div class="container-main flex justify-between items-center flex-wrap gap-2.5">
-            <p style="color:rgba(226,232,240,0.3);font-size:0.74rem;margin:0;">
+            <p class="text-[rgba(226,232,240,0.3)] text-[0.74rem] m-0">
                 <?php
                 if ($copyright) {
                     echo esc_html(str_replace('{year}', date('Y'), $copyright));
@@ -15,7 +15,7 @@ $webdesign_url = get_field('footer_webdesign_url', 'option');
                 ?>
             </p>
             <?php if ($webdesign_text && $webdesign_url) : ?>
-            <a href="<?php echo esc_url($webdesign_url); ?>" target="_blank" rel="noopener noreferrer" class="footer-link" style="font-size:0.74rem;">
+            <a href="<?php echo esc_url($webdesign_url); ?>" target="_blank" rel="noopener noreferrer" class="footer-link text-[0.74rem]">
                 <?php echo esc_html($webdesign_text); ?>
             </a>
             <?php endif; ?>

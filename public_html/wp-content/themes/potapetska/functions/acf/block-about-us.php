@@ -24,5 +24,6 @@ add_action('acf/init', function() {
             array('key' => 'field_about_bg_color', 'label' => 'Barva pozadí', 'name' => 'about_bg_color', 'type' => 'select', 'choices' => array('white' => 'Bílá', 'light' => 'Světle šedá', 'dark' => 'Tmavě modrá'), 'default_value' => 'white'),
         ),
         'location' => array(array(array('param' => 'block', 'operator' => '==', 'value' => 'acf/about-us'))),
+        'style' => 'seamless',
     ));
 });

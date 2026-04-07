@@ -3,8 +3,11 @@ $label = get_field('wtfu_label');
 $heading = get_field('wtfu_heading');
 $map = get_field('wtfu_map_location');
 $address = get_field('wtfu_address');
+
+$lat = !empty($map['lat']) ? floatval($map['lat']) : null;
+$lng = !empty($map['lng']) ? floatval($map['lng']) : null;
 ?>
-<section style="background:#ffffff;padding:100px 0;">
+<section class="bg-white py-[100px]">
     <div class="container-main">
         <?php get_template_part('parts/section-header', null, array(
             'label' => $label,
@@ -12,21 +15,42 @@ $address = get_field('wtfu_address');
             'align' => 'center',
         )); ?>
 
-        <div class="rounded overflow-hidden" style="border:1px solid rgba(3,56,105,0.1);">
-            <?php if ($map) : ?>
-            <div id="contact-map" style="width:100%;height:500px;background:#f0f2f5;">
-                <iframe
-                    src="https://www.google.com/maps/embed/v1/place?key=<?php echo defined('MAP_API_KEY') ? MAP_API_KEY : ''; ?>&q=<?php echo urlencode($map['address']); ?>&zoom=14"
-                    width="100%" height="500" style="border:0;display:block;" allowfullscreen loading="lazy"
-                    title="<?php echo esc_attr($heading ?: __('Kde nás najdete', 'potapetska')); ?>">
-                </iframe>
-            </div>
+        <div class="rounded overflow-hidden border border-primary/10">
+            <?php if ($lat && $lng) : ?>
+            <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+            <div id="wtfu-map" class="w-full h-[500px] bg-gray-bg"></div>
+            <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+            <script>
+            (function() {
+                var lat = <?php echo $lat; ?>;
+                var lng = <?php echo $lng; ?>;
+                var map = L.map('wtfu-map', { scrollWheelZoom: false }).setView([lat, lng], 15);
+
+                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    attribution: '&copy; OpenStreetMap',
+                    maxZoom: 18
+                }).addTo(map);
+
+                var icon = L.divIcon({
+                    className: 'custom-marker',
+                    html: '<div style="width:32px;height:32px;background:#fcdb00;border:3px solid #033869;border-radius:50%;box-shadow:0 2px 8px rgba(0,0,0,0.3);"></div>',
+                    iconSize: [32, 32],
+                    iconAnchor: [16, 16],
+                    popupAnchor: [0, -18]
+                });
+
+                var marker = L.marker([lat, lng], { icon: icon }).addTo(map);
+                <?php if ($address) : ?>
+                marker.bindPopup('<div style="font-family:Barlow,sans-serif;"><strong style="font-family:Barlow Condensed,sans-serif;font-size:1rem;color:#033869;text-transform:uppercase;display:block;margin-bottom:4px;"><?php echo esc_js($address); ?></strong></div>').openPopup();
+                <?php endif; ?>
+            })();
+            </script>
             <?php else : ?>
-            <div class="flex items-center justify-center" style="width:100%;height:500px;background:#f0f2f5;">
+            <div class="flex items-center justify-center w-full h-[500px] bg-gray-bg">
                 <div class="text-center">
-                    <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#033869" stroke-width="1.5" style="margin:0 auto 16px;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#033869" stroke-width="1.5" class="mx-auto mb-4"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
                     <?php if ($address) : ?>
-                    <p class="font-heading" style="font-size:1.2rem;font-weight:700;color:#033869;text-transform:uppercase;margin-bottom:8px;">
+                    <p class="font-heading text-[1.2rem] font-bold text-primary uppercase mb-2">
                         <?php echo nl2br(esc_html($address)); ?>
                     </p>
                     <?php endif; ?>

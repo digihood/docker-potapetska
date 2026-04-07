@@ -3,19 +3,25 @@ $label = get_field('partners_section_label', 'option');
 $partners = get_field('partners_list', 'option');
 if (!$partners) return;
 ?>
-<div class="rounded" style="background:#033869;padding:48px 52px;">
+<div class="rounded bg-primary px-[52px] py-12">
     <?php if ($label) : ?>
-    <p style="color:rgba(226,232,240,0.6);font-size:0.75rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;text-align:center;margin-bottom:32px;">
+    <p class="text-[rgba(226,232,240,0.6)] text-[0.75rem] font-bold tracking-[0.16em] uppercase text-center mb-8">
         <?php echo esc_html($label); ?>
     </p>
     <?php endif; ?>
-    <div class="flex flex-wrap justify-center gap-3">
-        <?php foreach ($partners as $partner) : ?>
-        <div class="rounded-[3px] transition-all duration-200 cursor-default" style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);padding:12px 22px;">
-            <span class="font-heading" style="font-size:0.95rem;font-weight:700;color:#ffffff;letter-spacing:0.04em;text-transform:uppercase;white-space:nowrap;">
-                <?php echo esc_html($partner['partner_name']); ?>
-            </span>
-        </div>
+    <div class="flex flex-wrap justify-center items-center gap-6">
+        <?php foreach ($partners as $partner) :
+            $logo = !empty($partner['partner_logo']) ? $partner['partner_logo'] : null;
+        ?>
+            <?php if ($logo) : ?>
+            <img src="<?php echo esc_url($logo['url']); ?>" alt="<?php echo esc_attr($partner['partner_name']); ?>" class="h-24 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity duration-200">
+            <?php else : ?>
+            <div class="rounded-[3px] transition-all duration-200 cursor-default bg-[rgba(255,255,255,0.07)] border border-[rgba(255,255,255,0.12)] px-[22px] py-3">
+                <span class="font-heading text-[0.95rem] font-bold text-white tracking-[0.04em] uppercase whitespace-nowrap">
+                    <?php echo esc_html($partner['partner_name']); ?>
+                </span>
+            </div>
+            <?php endif; ?>
         <?php endforeach; ?>
     </div>
 </div>

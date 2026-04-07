@@ -64,7 +64,7 @@ if ( !class_exists('ForgottenPasswordFormWed') ) {
                 <div class="hide ">
                     <input type="hidden" value="" name="username">
                 </div>
-                <div data-abide-error class="alert callout" style="display: none;">
+                <div data-abide-error class="alert callout hidden">
                     <p><i class="fi-alert"></i> There are some errors in your form.</p>
                 </div>
                 <p>

@@ -9,5 +9,6 @@ add_action('acf/init', function() {
             array('key' => 'field_partners_bg', 'label' => 'Barva pozadí sekce', 'name' => 'partners_bg_color', 'type' => 'select', 'choices' => array('light' => 'Světlé', 'white' => 'Bílé'), 'default_value' => 'light'),
         ),
         'location' => array(array(array('param' => 'block', 'operator' => '==', 'value' => 'acf/partners'))),
+        'style' => 'seamless',
     ));
 });

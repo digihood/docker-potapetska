@@ -14,8 +14,8 @@ $projects = get_posts(array(
 ));
 if (!$projects) return;
 ?>
-<section id="reference" style="background:#f0f2f5;padding:100px 0;position:relative;">
-    <div class="container-main relative" style="z-index:2;">
+<section id="reference" class="bg-gray-bg py-[100px] relative">
+    <div class="container-main relative z-[2]">
         <?php get_template_part('parts/section-header', null, array(
             'label' => $label,
             'heading' => $heading,
@@ -30,46 +30,46 @@ if (!$projects) return;
                 $thumb = get_the_post_thumbnail_url($project->ID, 'medium_large');
             ?>
             <a href="<?php echo get_permalink($project->ID); ?>" class="project-card">
-                <div style="height:140px;overflow:hidden;position:relative;">
+                <div class="h-[140px] overflow-hidden relative">
                     <?php if ($thumb) : ?>
-                    <img src="<?php echo esc_url($thumb); ?>" alt="<?php echo esc_attr($project->post_title); ?>" style="width:100%;height:100%;object-fit:cover;display:block;">
+                    <img src="<?php echo esc_url($thumb); ?>" alt="<?php echo esc_attr($project->post_title); ?>" class="w-full h-full object-cover block">
                     <?php else : ?>
-                    <div style="width:100%;height:100%;background:#e5e7eb;"></div>
+                    <div class="w-full h-full bg-gray-200"></div>
                     <?php endif; ?>
-                    <div class="absolute inset-0" style="background:linear-gradient(to top,rgba(3,56,105,0.55) 0%,transparent 70%);"></div>
+                    <div class="absolute inset-0 bg-[linear-gradient(to_top,rgba(3,56,105,0.55)_0%,transparent_70%)]"></div>
                     <?php if ($cat_label) : ?>
-                    <div class="absolute" style="top:12px;left:12px;background:#fcdb00;color:#033869;font-size:0.65rem;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;padding:4px 10px;border-radius:2px;">
+                    <div class="absolute top-3 left-3 bg-yellow text-primary text-[0.65rem] font-extrabold tracking-[0.1em] uppercase py-1 px-2.5 rounded-sm">
                         <?php echo esc_html($cat_label); ?>
                     </div>
                     <?php endif; ?>
                 </div>
-                <div style="padding:22px 24px 20px;">
-                    <h3 class="font-heading" style="font-size:1.15rem;font-weight:800;color:#033869;text-transform:uppercase;letter-spacing:0.02em;margin-bottom:10px;line-height:1.2;">
+                <div class="pt-[22px] px-6 pb-5">
+                    <h3 class="font-heading text-[1.15rem] font-extrabold text-primary uppercase tracking-[0.02em] mb-2.5 leading-[1.2]">
                         <?php echo esc_html($project->post_title); ?>
                     </h3>
                     <div class="flex items-center gap-3.5 mb-3">
                         <?php if ($location) : ?>
-                        <span class="flex items-center gap-1" style="color:#9ca3af;font-size:0.8rem;">
+                        <span class="flex items-center gap-1 text-gray-muted text-[0.8rem]">
                             <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
                             <?php echo esc_html($location); ?>
                         </span>
                         <?php endif; ?>
                         <?php if ($date) : ?>
-                        <span class="flex items-center gap-1" style="color:#9ca3af;font-size:0.8rem;">
+                        <span class="flex items-center gap-1 text-gray-muted text-[0.8rem]">
                             <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
                             <?php echo esc_html($date); ?>
                         </span>
                         <?php endif; ?>
                     </div>
                     <?php if ($project->post_excerpt) : ?>
-                    <p style="color:#6b7280;font-size:0.86rem;line-height:1.6;margin-bottom:16px;"><?php echo esc_html($project->post_excerpt); ?></p>
+                    <p class="text-gray-body text-[0.86rem] leading-[1.6] mb-4"><?php echo esc_html($project->post_excerpt); ?></p>
                     <?php endif; ?>
-                    <div class="flex items-center gap-1.5" style="color:#033869;font-size:0.75rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;">
+                    <div class="flex items-center gap-1.5 text-primary text-[0.75rem] font-bold tracking-[0.06em] uppercase">
                         <?php _e('Zjistit více o projektu', 'potapetska'); ?>
                         <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                     </div>
                 </div>
-                <div class="absolute bottom-0 left-0" style="height:3px;width:48px;background:#fcdb00;"></div>
+                <div class="absolute bottom-0 left-0 h-[3px] w-12 bg-yellow"></div>
             </a>
             <?php endforeach; ?>
         </div>
@@ -103,18 +103,18 @@ if (!$projects) return;
                 }
             }
         ?>
-        <div class="rounded overflow-hidden mb-16" style="background:#ffffff;border:1px solid rgba(3,56,105,0.1);box-shadow:0 2px 8px rgba(3,56,105,0.06);">
+        <div class="rounded overflow-hidden mb-16 bg-white border border-primary/[0.1] shadow-[0_2px_8px_rgba(3,56,105,0.06)]">
             <!-- Category filter tags -->
-            <div style="padding:20px 24px;background:#ffffff;border-bottom:1px solid rgba(3,56,105,0.08);display:flex;flex-wrap:wrap;gap:8px;align-items:center;">
+            <div class="py-5 px-6 bg-white border-b border-primary/[0.08] flex flex-wrap gap-2 items-center">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#033869" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                <span style="color:#033869;font-size:0.72rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;">
+                <span class="text-primary text-[0.72rem] font-bold tracking-[0.08em] uppercase">
                     <?php _e('Projekty v ČR:', 'potapetska'); ?>
                 </span>
-                <button class="map-filter active" data-category="all" style="background:#033869;color:#ffffff;font-size:0.7rem;font-weight:600;letter-spacing:0.04em;padding:4px 10px;border-radius:3px;border:1px solid #033869;cursor:pointer;transition:all 0.2s;">
+                <button class="map-filter active bg-primary text-white text-[0.7rem] font-semibold tracking-[0.04em] py-1 px-2.5 rounded-[3px] border border-primary cursor-pointer transition-all duration-200">
                     <?php _e('Všechny', 'potapetska'); ?>
                 </button>
                 <?php foreach ($categories as $cat) : ?>
-                <button class="map-filter" data-category="<?php echo esc_attr($cat); ?>" style="background:#f0f2f5;color:#42454e;font-size:0.7rem;font-weight:600;letter-spacing:0.04em;padding:4px 10px;border-radius:3px;border:1px solid rgba(3,56,105,0.08);cursor:pointer;transition:all 0.2s;">
+                <button class="map-filter bg-gray-bg text-gray-dark text-[0.7rem] font-semibold tracking-[0.04em] py-1 px-2.5 rounded-[3px] border border-primary/[0.08] cursor-pointer transition-all duration-200" data-category="<?php echo esc_attr($cat); ?>">
                     <?php echo esc_html($cat); ?>
                 </button>
                 <?php endforeach; ?>
@@ -122,7 +122,7 @@ if (!$projects) return;
 
             <!-- Leaflet Map -->
             <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-            <div id="references-map" style="width:100%;height:600px;background:#f0f2f5;"></div>
+            <div id="references-map" class="w-full h-[600px] bg-gray-bg"></div>
             <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
             <script>
             (function() {

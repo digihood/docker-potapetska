@@ -11,5 +11,6 @@ add_action('acf/init', function() {
             array('key' => 'field_ot_members', 'label' => 'Členové týmu', 'name' => 'our_team_members', 'type' => 'relationship', 'post_type' => array('team'), 'return_format' => 'object'),
         ),
         'location' => array(array(array('param' => 'block', 'operator' => '==', 'value' => 'acf/our-team'))),
+        'style' => 'seamless',
     ));
 });

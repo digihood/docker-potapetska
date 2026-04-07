@@ -21,5 +21,6 @@ add_action('acf/init', function() {
             array('key' => 'field_os_cta_link', 'label' => 'CTA odkaz', 'name' => 'other_services_cta_link', 'type' => 'link'),
         ),
         'location' => array(array(array('param' => 'block', 'operator' => '==', 'value' => 'acf/other-services'))),
+        'style' => 'seamless',
     ));
 });

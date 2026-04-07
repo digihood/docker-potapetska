@@ -24,5 +24,6 @@ add_action('acf/init', function() {
             array('key' => 'field_services_cta_link', 'label' => 'CTA odkaz', 'name' => 'services_cta_link', 'type' => 'link'),
         ),
         'location' => array(array(array('param' => 'block', 'operator' => '==', 'value' => 'acf/services'))),
+        'style' => 'seamless',
     ));
 });

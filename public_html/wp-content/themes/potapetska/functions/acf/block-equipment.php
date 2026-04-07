@@ -33,5 +33,6 @@ add_action('acf/init', function() {
             array('key' => 'field_equip_sale_cta_link', 'label' => 'Odprodej - CTA odkaz', 'name' => 'equipment_sale_cta_link', 'type' => 'link'),
         ),
         'location' => array(array(array('param' => 'block', 'operator' => '==', 'value' => 'acf/equipment'))),
+        'style' => 'seamless',
     ));
 });

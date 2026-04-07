@@ -14,5 +14,6 @@ add_action('acf/init', function() {
             array('key' => 'field_ref_show_clients', 'label' => 'Zobrazit klienty', 'name' => 'references_show_clients', 'type' => 'true_false', 'default_value' => 1),
         ),
         'location' => array(array(array('param' => 'block', 'operator' => '==', 'value' => 'acf/references'))),
+        'style' => 'seamless',
     ));
 });

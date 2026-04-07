@@ -1,28 +1,28 @@
 <?php get_header(); ?>
 
-<section style="padding:140px 0 60px;background:linear-gradient(135deg, #033869 0%, #022d5e 100%);">
+<section class="pt-[140px] pb-[60px] bg-[linear-gradient(135deg,_#033869_0%,_#022d5e_100%)]">
     <div class="container-main">
-        <h1 style="color:#ffffff;"><?php _e('Blog', 'potapetska'); ?></h1>
+        <h1 class="text-white"><?php _e('Blog', 'potapetska'); ?></h1>
     </div>
 </section>
 
-<div class="container-main" style="padding:60px 0;">
+<div class="container-main py-[60px]">
     <?php if (have_posts()) : ?>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <?php while (have_posts()) : the_post(); ?>
         <article class="project-card">
             <?php if (has_post_thumbnail()) : ?>
-            <div style="height:200px;overflow:hidden;">
-                <?php the_post_thumbnail('medium_large', array('style' => 'width:100%;height:100%;object-fit:cover;display:block;')); ?>
+            <div class="h-[200px] overflow-hidden">
+                <?php the_post_thumbnail('medium_large', array('class' => 'w-full h-full object-cover block')); ?>
             </div>
             <?php endif; ?>
-            <div style="padding:24px;">
-                <h3 style="font-size:1.15rem;margin-bottom:8px;">
-                    <a href="<?php the_permalink(); ?>" class="no-underline" style="color:#033869;">
+            <div class="p-6">
+                <h3 class="text-[1.15rem] mb-2">
+                    <a href="<?php the_permalink(); ?>" class="no-underline text-primary">
                         <?php the_title(); ?>
                     </a>
                 </h3>
-                <p style="font-size:0.88rem;color:#6b7280;line-height:1.6;">
+                <p class="text-[0.88rem] text-gray-body leading-relaxed">
                     <?php echo wp_trim_words(get_the_excerpt(), 20); ?>
                 </p>
             </div>
