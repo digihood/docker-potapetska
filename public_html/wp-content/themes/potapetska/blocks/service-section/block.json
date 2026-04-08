@@ -1,0 +1,17 @@
+{
+  "name": "acf/service-section",
+  "title": "Detail služby",
+  "description": "Detailní popis služby",
+  "category": "potapetska",
+  "icon": "text-page",
+  "keywords": ["služba", "detail"],
+  "acf": {
+    "renderTemplate": "parts/block/service-section.php",
+    "blockVersion": 3,
+    "autoInlineEditing": true,
+    "mode": "preview"
+  },
+  "supports": {
+    "align": false
+  }
+}

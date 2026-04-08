@@ -1,0 +1,17 @@
+{
+  "name": "acf/centers",
+  "title": "Střediska",
+  "description": "Naše střediska",
+  "category": "potapetska",
+  "icon": "building",
+  "keywords": ["střediska", "pobočky"],
+  "acf": {
+    "renderTemplate": "parts/block/centers.php",
+    "blockVersion": 3,
+    "autoInlineEditing": true,
+    "mode": "preview"
+  },
+  "supports": {
+    "align": false
+  }
+}

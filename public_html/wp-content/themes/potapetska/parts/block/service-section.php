@@ -41,7 +41,7 @@ if (!$heading && !$text) return;
             </div>
             <?php if ($image) : ?>
             <div class="rounded overflow-hidden shadow-[0_20px_60px_rgba(3,56,105,0.15)]">
-                <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" class="w-full h-[500px] object-cover block">
+                <img src="<?php echo esc_url(is_array($image) ? $image['url'] : $image); ?>" alt="<?php echo esc_attr(is_array($image) ? ($image['alt'] ?? '') : ''); ?>" class="w-full h-[500px] object-cover block">
             </div>
             <?php endif; ?>
         </div>

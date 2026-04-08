@@ -12,5 +12,6 @@ add_action('acf/init', function() {
         ),
         'location' => array(array(array('param' => 'block', 'operator' => '==', 'value' => 'acf/our-team'))),
         'style' => 'seamless',
+        'position' => 'normal',
     ));
 });

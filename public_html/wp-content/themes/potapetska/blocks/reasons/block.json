@@ -1,0 +1,17 @@
+{
+  "name": "acf/reasons",
+  "title": "Proč nás zvolit",
+  "description": "Důvody pro výběr společnosti",
+  "category": "potapetska",
+  "icon": "star-filled",
+  "keywords": ["důvody", "proč"],
+  "acf": {
+    "renderTemplate": "parts/block/reasons.php",
+    "blockVersion": 3,
+    "autoInlineEditing": true,
+    "mode": "preview"
+  },
+  "supports": {
+    "align": false
+  }
+}

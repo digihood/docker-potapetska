@@ -1,0 +1,17 @@
+{
+  "name": "acf/projects-select",
+  "title": "Výběr projektů",
+  "description": "Výběr konkrétních projektů",
+  "category": "potapetska",
+  "icon": "images-alt2",
+  "keywords": ["projekty", "výběr"],
+  "acf": {
+    "renderTemplate": "parts/block/projects-select.php",
+    "blockVersion": 3,
+    "autoInlineEditing": true,
+    "mode": "preview"
+  },
+  "supports": {
+    "align": false
+  }
+}

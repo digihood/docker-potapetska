@@ -6,7 +6,7 @@ $footer_members = get_field('footer_memberships', 'option');
 ?>
 <footer class="site-footer" role="contentinfo">
     <div class="container-main pt-14 px-6 pb-0">
-        <div class="grid grid-cols-1 lg:grid-cols-[220px_1fr_200px] gap-12 pb-10 border-b border-[rgba(255,255,255,0.07)]">
+        <div class="grid grid-cols-1 lg:grid-cols-[220px_1fr_1fr_200px] gap-12 pb-10 border-b border-[rgba(255,255,255,0.07)]">
             <!-- Brand -->
             <div>
                 <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/logo.png'); ?>" alt="<?php bloginfo('name'); ?>" class="h-[60px] w-auto mb-4 block">
@@ -20,25 +20,45 @@ $footer_members = get_field('footer_memberships', 'option');
                 <?php endif; ?>
             </div>
 
-            <!-- Services menu -->
+            <!-- Levé menu -->
+            <?php
+            $menu_left_title = get_field('footer_menu_left_title', 'option');
+            $menu_left = get_field('footer_menu_left', 'option');
+            ?>
+            <?php if ($menu_left) : ?>
             <div>
+                <?php if ($menu_left_title) : ?>
                 <h4 class="font-heading text-[0.75rem] font-extrabold text-white uppercase tracking-[0.14em] mb-3 pb-2.5 border-b border-[rgba(255,255,255,0.07)]">
-                    <?php _e('Nase sluzby', 'potapetska'); ?>
+                    <?php echo esc_html($menu_left_title); ?>
                 </h4>
-                <div class="columns-2 gap-x-6">
-                    <?php
-                    wp_nav_menu(array(
-                        'theme_location' => 'footer',
-                        'container' => false,
-                        'items_wrap' => '%3$s',
-                        'link_before' => '',
-                        'link_after' => '',
-                        'fallback_cb' => false,
-                        'depth' => 1,
-                    ));
-                    ?>
-                </div>
+                <?php endif; ?>
+                <ul class="menu">
+                    <?php foreach ($menu_left as $item) : ?>
+                    <li><a href="<?php echo esc_url(get_permalink($item)); ?>"><?php echo esc_html(get_the_title($item)); ?></a></li>
+                    <?php endforeach; ?>
+                </ul>
             </div>
+            <?php endif; ?>
+
+            <!-- Pravé menu -->
+            <?php
+            $menu_right_title = get_field('footer_menu_right_title', 'option');
+            $menu_right = get_field('footer_menu_right', 'option');
+            ?>
+            <?php if ($menu_right) : ?>
+            <div>
+                <?php if ($menu_right_title) : ?>
+                <h4 class="font-heading text-[0.75rem] font-extrabold text-white uppercase tracking-[0.14em] mb-3 pb-2.5 border-b border-[rgba(255,255,255,0.07)]">
+                    <?php echo esc_html($menu_right_title); ?>
+                </h4>
+                <?php endif; ?>
+                <ul class="menu">
+                    <?php foreach ($menu_right as $item) : ?>
+                    <li><a href="<?php echo esc_url(get_permalink($item)); ?>"><?php echo esc_html(get_the_title($item)); ?></a></li>
+                    <?php endforeach; ?>
+                </ul>
+            </div>
+            <?php endif; ?>
 
             <!-- Contact -->
             <div>
@@ -65,23 +85,6 @@ $footer_members = get_field('footer_memberships', 'option');
                     </div>
                     <?php endforeach;
                 endif; ?>
-
-                <?php
-                $footer_links = get_field('footer_links', 'option');
-                if ($footer_links) : ?>
-                <div class="mt-[18px]">
-                    <?php foreach ($footer_links as $flink) :
-                        $link_data = $flink['url'] ?? '';
-                        $link_url = is_array($link_data) ? ($link_data['url'] ?? '') : $link_data;
-                        $link_title = is_array($link_data) ? ($link_data['title'] ?? '') : '';
-                        if ($link_url || !empty($flink['label'])) :
-                    ?>
-                    <a href="<?php echo esc_url($link_url ?: '#'); ?>" class="footer-link">
-                        <?php echo esc_html($link_title ?: ($flink['label'] ?? '')); ?>
-                    </a>
-                    <?php endif; endforeach; ?>
-                </div>
-                <?php endif; ?>
             </div>
         </div>
 

@@ -18,5 +18,6 @@ add_action('acf/init', function() {
         ),
         'location' => array(array(array('param' => 'block', 'operator' => '==', 'value' => 'acf/reasons'))),
         'style' => 'seamless',
+        'position' => 'normal',
     ));
 });

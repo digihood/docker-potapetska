@@ -1,0 +1,17 @@
+{
+  "name": "acf/references",
+  "title": "Reference",
+  "description": "Zobrazení posledních projektů",
+  "category": "potapetska",
+  "icon": "portfolio",
+  "keywords": ["reference", "projekty"],
+  "acf": {
+    "renderTemplate": "parts/block/references.php",
+    "blockVersion": 3,
+    "autoInlineEditing": true,
+    "mode": "preview"
+  },
+  "supports": {
+    "align": false
+  }
+}

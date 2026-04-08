@@ -60,7 +60,7 @@ $sale_cta_link = get_field('equipment_sale_cta_link');
                 </ul>
                 <?php endif; ?>
                 <?php if ($rental_cta) :
-                    $r_url = $rental_cta_link ? $rental_cta_link['url'] : '#kontakt';
+                    $r_url = $rental_cta_link ? (is_array($rental_cta_link) ? $rental_cta_link['url'] : $rental_cta_link) : '#kontakt';
                 ?>
                 <a href="<?php echo esc_url($r_url); ?>" class="btn-primary py-[13px] px-7 text-[0.85rem]">
                     <?php echo esc_html($rental_cta); ?>
@@ -96,7 +96,7 @@ $sale_cta_link = get_field('equipment_sale_cta_link');
                 </ul>
                 <?php endif; ?>
                 <?php if ($sale_cta) :
-                    $s_url = $sale_cta_link ? $sale_cta_link['url'] : '#kontakt';
+                    $s_url = $sale_cta_link ? (is_array($sale_cta_link) ? $sale_cta_link['url'] : $sale_cta_link) : '#kontakt';
                 ?>
                 <a href="<?php echo esc_url($s_url); ?>" class="btn-primary py-[13px] px-7 text-[0.85rem]">
                     <?php echo esc_html($sale_cta); ?>

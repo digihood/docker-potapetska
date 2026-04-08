@@ -36,7 +36,7 @@ $bg_class = match($bg) {
                 </div>
                 <?php endif; ?>
                 <?php if ($cta_text) :
-                    $url = $cta_link ? $cta_link['url'] : '#kontakt';
+                    $url = $cta_link ? (is_array($cta_link) ? $cta_link['url'] : $cta_link) : '#kontakt';
                 ?>
                 <a href="<?php echo esc_url($url); ?>" class="btn-secondary">
                     <?php echo esc_html($cta_text); ?>
@@ -48,7 +48,7 @@ $bg_class = match($bg) {
             <div>
                 <?php if ($image) : ?>
                 <div class="relative rounded overflow-hidden mb-6 h-[300px]">
-                    <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" class="w-full h-full object-cover">
+                    <img src="<?php echo esc_url(is_array($image) ? $image['url'] : $image); ?>" alt="<?php echo esc_attr(is_array($image) ? ($image['alt'] ?? '') : ''); ?>" class="w-full h-full object-cover">
                     <div class="absolute inset-0 bg-[linear-gradient(to_top,rgba(3,56,105,0.7)_0%,transparent_60%)]"></div>
                     <?php if ($badge_num) : ?>
                     <div class="absolute flex items-end gap-2 bottom-5 left-5">
@@ -67,7 +67,7 @@ $bg_class = match($bg) {
                     <div class="flex items-center gap-3">
                         <?php foreach ($certs as $cert) : if (!empty($cert['image'])) : ?>
                         <div class="flex flex-col items-center gap-1" title="<?php echo esc_attr($cert['label'] . ' – ' . ($cert['description'] ?? '')); ?>">
-                            <img src="<?php echo esc_url($cert['image']['url']); ?>" alt="<?php echo esc_attr($cert['label']); ?>" class="h-[60px] w-[60px] object-contain opacity-85">
+                            <img src="<?php echo esc_url(is_array($cert['image']) ? $cert['image']['url'] : $cert['image']); ?>" alt="<?php echo esc_attr($cert['label']); ?>" class="h-[60px] w-[60px] object-contain opacity-85">
                             <span class="text-[0.65rem] font-bold text-gray-body tracking-[0.04em] uppercase"><?php echo esc_html($cert['label']); ?></span>
                         </div>
                         <?php endif; endforeach; ?>

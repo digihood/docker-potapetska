@@ -6,6 +6,7 @@ $address = get_field('wtfu_address');
 
 $lat = !empty($map['lat']) ? floatval($map['lat']) : null;
 $lng = !empty($map['lng']) ? floatval($map['lng']) : null;
+$mapAddress = !empty($map['address']) ? $map['address'] : $address;
 ?>
 <section class="bg-white py-[100px]">
     <div class="container-main">
@@ -40,9 +41,12 @@ $lng = !empty($map['lng']) ? floatval($map['lng']) : null;
                 });
 
                 var marker = L.marker([lat, lng], { icon: icon }).addTo(map);
-                <?php if ($address) : ?>
-                marker.bindPopup('<div style="font-family:Barlow,sans-serif;"><strong style="font-family:Barlow Condensed,sans-serif;font-size:1rem;color:#033869;text-transform:uppercase;display:block;margin-bottom:4px;"><?php echo esc_js($address); ?></strong></div>').openPopup();
+                <?php if ($mapAddress) : ?>
+                marker.bindPopup('<div style="font-family:Barlow,sans-serif;"><strong style="font-family:Barlow Condensed,sans-serif;font-size:1rem;color:#033869;text-transform:uppercase;display:block;margin-bottom:4px;"><?php echo esc_js($mapAddress); ?></strong></div>').openPopup();
                 <?php endif; ?>
+
+                setTimeout(function() { map.invalidateSize(); }, 100);
+                window.addEventListener('load', function() { map.invalidateSize(); });
             })();
             </script>
             <?php else : ?>

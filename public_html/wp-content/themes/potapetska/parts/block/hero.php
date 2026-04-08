@@ -12,7 +12,7 @@ $bg = get_field('hero_bg_image');
 ?>
 <section class="relative w-full flex items-center overflow-hidden min-h-screen font-sans">
     <?php if ($bg) : ?>
-    <div class="absolute inset-0 bg-cover bg-[center_40%]" style="background-image:url(<?php echo esc_url($bg['url']); ?>);"></div>
+    <div class="absolute inset-0 bg-cover bg-[center_40%]" style="background-image:url(<?php echo esc_url(is_array($bg) ? $bg['url'] : $bg); ?>);"></div>
     <?php endif; ?>
     <div class="absolute inset-0 bg-[linear-gradient(105deg,rgba(3,56,105,0.88)_0%,rgba(3,56,105,0.65)_50%,rgba(3,56,105,0.4)_100%)]"></div>
     <div class="absolute inset-0 bg-[linear-gradient(to_top,rgba(3,56,105,0.95)_0%,transparent_60%)]"></div>
@@ -42,7 +42,7 @@ $bg = get_field('hero_bg_image');
 
             <div class="flex gap-4 flex-wrap">
                 <?php if ($cta1_text) :
-                    $url1 = $cta1_link ? $cta1_link['url'] : '#kontakt';
+                    $url1 = $cta1_link ? (is_array($cta1_link) ? $cta1_link['url'] : $cta1_link) : '#kontakt';
                 ?>
                 <a href="<?php echo esc_url($url1); ?>" class="btn-primary px-9 py-4 text-[0.9rem] shadow-[0_4px_24px_rgba(252,219,0,0.3)]">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.12 1.18 2 2 0 012.11 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
@@ -50,7 +50,7 @@ $bg = get_field('hero_bg_image');
                 </a>
                 <?php endif; ?>
                 <?php if ($cta2_text) :
-                    $url2 = $cta2_link ? $cta2_link['url'] : '#technika';
+                    $url2 = $cta2_link ? (is_array($cta2_link) ? $cta2_link['url'] : $cta2_link) : '#technika';
                 ?>
                 <a href="<?php echo esc_url($url2); ?>" class="btn-outline px-9 py-4 text-[0.9rem]">
                     <?php echo esc_html($cta2_text); ?>

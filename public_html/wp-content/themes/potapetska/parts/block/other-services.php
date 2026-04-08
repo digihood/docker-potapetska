@@ -43,7 +43,7 @@ if (!$items) return;
         </div>
 
         <?php if ($cta_text) :
-            $url = $cta_link ? $cta_link['url'] : home_url('/#sluzby');
+            $url = $cta_link ? (is_array($cta_link) ? $cta_link['url'] : $cta_link) : home_url('/#sluzby');
         ?>
         <div class="text-center">
             <a href="<?php echo esc_url($url); ?>" class="btn-secondary">

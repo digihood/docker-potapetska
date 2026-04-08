@@ -305,7 +305,7 @@ export function Footer() {
             © {year} Potápěčská Stanice a.s. Všechna práva vyhrazena. IČO: 25143861
           </p>
           <a
-            href="https://digihood.cz"
+            href="https://digihood.cz/tvorba-webovych-stranek/design-webovych-stranek"
             target="_blank"
             rel="noopener noreferrer"
             style={{

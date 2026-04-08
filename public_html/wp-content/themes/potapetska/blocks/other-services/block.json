@@ -1,0 +1,17 @@
+{
+  "name": "acf/other-services",
+  "title": "Další služby",
+  "description": "Grid dalších služeb",
+  "category": "potapetska",
+  "icon": "screenoptions",
+  "keywords": ["služby", "další"],
+  "acf": {
+    "renderTemplate": "parts/block/other-services.php",
+    "blockVersion": 3,
+    "autoInlineEditing": true,
+    "mode": "preview"
+  },
+  "supports": {
+    "align": false
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "apiVersion": 2,
+  "name": "acf/hero",
+  "title": "Hero sekce",
+  "description": "Hlavní hero sekce s pozadím",
+  "category": "potapetska",
+  "icon": "cover-image",
+  "keywords": ["hero", "úvod"],
+  "acf": {
+    "renderTemplate": "parts/block/hero.php",
+    "blockVersion": 3,
+    "autoInlineEditing": true,
+    "mode": "preview"
+  },
+  "supports": {
+    "align": false
+  }
+}

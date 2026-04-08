@@ -1,0 +1,17 @@
+{
+  "name": "acf/contact",
+  "title": "Kontakt",
+  "description": "Kontaktní sekce z Options",
+  "category": "potapetska",
+  "icon": "email",
+  "keywords": ["kontakt", "formulář"],
+  "acf": {
+    "renderTemplate": "parts/block/contact.php",
+    "blockVersion": 3,
+    "autoInlineEditing": true,
+    "mode": "preview"
+  },
+  "supports": {
+    "align": false
+  }
+}

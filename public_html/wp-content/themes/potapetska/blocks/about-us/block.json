@@ -1,0 +1,17 @@
+{
+  "name": "acf/about-us",
+  "title": "O nás",
+  "description": "Sekce o společnosti",
+  "category": "potapetska",
+  "icon": "groups",
+  "keywords": ["o nás", "about"],
+  "acf": {
+    "renderTemplate": "parts/block/about-us.php",
+    "blockVersion": 3,
+    "autoInlineEditing": true,
+    "mode": "preview"
+  },
+  "supports": {
+    "align": false
+  }
+}

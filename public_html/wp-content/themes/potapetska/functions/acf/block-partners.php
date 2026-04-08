@@ -10,5 +10,6 @@ add_action('acf/init', function() {
         ),
         'location' => array(array(array('param' => 'block', 'operator' => '==', 'value' => 'acf/partners'))),
         'style' => 'seamless',
+        'position' => 'normal',
     ));
 });

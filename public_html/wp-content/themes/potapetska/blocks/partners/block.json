@@ -1,0 +1,17 @@
+{
+  "name": "acf/partners",
+  "title": "Partneři",
+  "description": "Sekce partnerů z Options",
+  "category": "potapetska",
+  "icon": "networking",
+  "keywords": ["partneři", "klienti"],
+  "acf": {
+    "renderTemplate": "parts/block/partners.php",
+    "blockVersion": 3,
+    "autoInlineEditing": true,
+    "mode": "preview"
+  },
+  "supports": {
+    "align": false
+  }
+}

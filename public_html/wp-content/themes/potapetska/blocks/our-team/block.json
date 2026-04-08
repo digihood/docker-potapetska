@@ -1,0 +1,17 @@
+{
+  "name": "acf/our-team",
+  "title": "Náš tým",
+  "description": "Zobrazení členů týmu",
+  "category": "potapetska",
+  "icon": "admin-users",
+  "keywords": ["tým", "lidé"],
+  "acf": {
+    "renderTemplate": "parts/block/our-team.php",
+    "blockVersion": 3,
+    "autoInlineEditing": true,
+    "mode": "preview"
+  },
+  "supports": {
+    "align": false
+  }
+}

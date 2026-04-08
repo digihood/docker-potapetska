@@ -1,0 +1,17 @@
+{
+  "name": "acf/equipment",
+  "title": "Technika & Půjčovna",
+  "description": "Sekce s technikou a půjčovnou",
+  "category": "potapetska",
+  "icon": "hammer",
+  "keywords": ["technika", "půjčovna"],
+  "acf": {
+    "renderTemplate": "parts/block/equipment.php",
+    "blockVersion": 3,
+    "autoInlineEditing": true,
+    "mode": "preview"
+  },
+  "supports": {
+    "align": false
+  }
+}

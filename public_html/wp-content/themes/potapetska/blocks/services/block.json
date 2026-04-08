@@ -1,0 +1,17 @@
+{
+  "name": "acf/services",
+  "title": "Služby",
+  "description": "Grid služeb s kartami",
+  "category": "potapetska",
+  "icon": "grid-view",
+  "keywords": ["služby", "services"],
+  "acf": {
+    "renderTemplate": "parts/block/services.php",
+    "blockVersion": 3,
+    "autoInlineEditing": true,
+    "mode": "preview"
+  },
+  "supports": {
+    "align": false
+  }
+}

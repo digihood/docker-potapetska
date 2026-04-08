@@ -1,0 +1,17 @@
+{
+  "name": "acf/where-to-find-us",
+  "title": "Kde nás najdete",
+  "description": "Mapa s lokací",
+  "category": "potapetska",
+  "icon": "location-alt",
+  "keywords": ["mapa", "lokace"],
+  "acf": {
+    "renderTemplate": "parts/block/where-to-find-us.php",
+    "blockVersion": 3,
+    "autoInlineEditing": true,
+    "mode": "preview"
+  },
+  "supports": {
+    "align": false
+  }
+}

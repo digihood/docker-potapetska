@@ -25,5 +25,6 @@ add_action('acf/init', function() {
         ),
         'location' => array(array(array('param' => 'block', 'operator' => '==', 'value' => 'acf/centers'))),
         'style' => 'seamless',
+        'position' => 'normal',
     ));
 });

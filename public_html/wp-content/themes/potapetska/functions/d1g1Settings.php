@@ -34,7 +34,7 @@ if( ! class_exists( 'd1g1Settings' ) )
     }
     //nastaví API pro google
     public static function google_api_digihood() {
-      return 'XXX';
+      return MAP_API_KEY;
     }
 
 	}

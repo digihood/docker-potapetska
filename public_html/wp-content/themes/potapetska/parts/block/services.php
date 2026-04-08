@@ -20,7 +20,7 @@ if (!$items) return;
         <div class="grid gap-5 grid-cols-[repeat(auto-fill,minmax(320px,1fr))]">
             <?php foreach ($items as $service) :
                 $tags = !empty($service['tags']) ? array_map('trim', explode(',', $service['tags'])) : array();
-                $link = !empty($service['button_link']) ? $service['button_link']['url'] : '#kontakt';
+                $link = !empty($service['button_link']) ? (is_array($service['button_link']) ? $service['button_link']['url'] : $service['button_link']) : '#kontakt';
             ?>
             <div class="group rounded border-2 border-primary/[0.08] bg-white p-8 cursor-default transition-all duration-300 relative overflow-hidden flex flex-col hover:bg-primary-dark hover:border-primary-dark hover:-translate-y-1 hover:shadow-[0_16px_48px_rgba(3,56,105,0.18)]">
                 <h3 class="font-heading text-[1.2rem] font-bold uppercase tracking-wide mb-2.5 leading-tight transition-colors duration-300 text-primary pr-10 group-hover:text-white"><?php echo esc_html($service['title']); ?></h3>
@@ -42,7 +42,7 @@ if (!$items) return;
         </div>
 
         <?php if ($cta_text) :
-            $cta_url = $cta_link ? $cta_link['url'] : '#kontakt';
+            $cta_url = $cta_link ? (is_array($cta_link) ? $cta_link['url'] : $cta_link) : '#kontakt';
         ?>
         <div class="flex justify-center mt-[52px]">
             <a href="<?php echo esc_url($cta_url); ?>" class="btn-primary">
